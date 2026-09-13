@@ -15,9 +15,9 @@ resources:
   replicas: 1
 services:
   - name: web
+    image: awesome-release/apache-php/web
     build:
-      context: "./app"
-      dockerfile: "./app/Dockerfile"
+      context: app
     has_repo: true
     ports:
       - type: node_port
