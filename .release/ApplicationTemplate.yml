@@ -4,7 +4,7 @@ context: gcp-release-development
 domain: gcp.release.com
 repo_name: awesome-release/apache-php
 hostnames:
-  - web: web-${env_id}-${domain}
+  - web: web-${env_id}.${domain}
 resources:
   cpu:
     limits: 500m
