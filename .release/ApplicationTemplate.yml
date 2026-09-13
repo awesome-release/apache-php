@@ -1,7 +1,7 @@
 ---
 auto_deploy: true
 context: gcp-release-development
-domain: ${DOMAIN}
+domain: gcp.release.com
 repo_name: awesome-release/apache-php
 hostnames:
   - web: web-${env_id}-${domain}
