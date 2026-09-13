@@ -1,0 +1,44 @@
+---
+auto_deploy: true
+context: gcp-release-development
+domain: ${DOMAIN}
+repo_name: awesome-release/apache-php
+hostnames:
+  - web: web-${env_id}-${domain}
+resources:
+  cpu:
+    limits: 500m
+    requests: 100m
+  memory:
+    limits: 512Mi
+    requests: 128Mi
+  replicas: 1
+services:
+  - name: web
+    build:
+      context: "./app"
+      dockerfile: "./app/Dockerfile"
+    has_repo: true
+    ports:
+      - type: node_port
+        target_port: "80"
+        port: "80"
+workflows:
+  - name: setup
+    parallelize:
+      - step: setup
+        tasks:
+          - services.web
+  - name: patch
+    parallelize:
+      - step: patch
+        tasks:
+          - services.web
+  - name: teardown
+    parallelize:
+      - step: teardown
+        tasks:
+          - release.remove_environment
+environment_templates:
+  - name: ephemeral
+  - name: permanent
