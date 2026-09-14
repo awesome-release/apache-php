@@ -1,5 +1,7 @@
 ---
 auto_deploy: true
+app_imports:
+  - name: prod-verify-nongitops
 context: gcp-release-development
 domain: gcp.release.com
 repo_name: awesome-release/apache-php
