@@ -2,6 +2,7 @@
 auto_deploy: true
 app_imports:
   - name: prod-verify-nongitops
+  - name: gitops-prod-verify-import
 context: gcp-release-development
 domain: gcp.release.com
 repo_name: awesome-release/apache-php
