@@ -1,0 +1,6 @@
+---
+defaults:
+  - key: MULTI_IMPORT_MARKER
+    value: "multi-round"
+services: {}
+mapping: {}
